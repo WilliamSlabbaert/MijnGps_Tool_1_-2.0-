@@ -58,7 +58,6 @@ namespace MijnGps
             foreach (String line in lines)
             {
                 readWRGemeenteIDLine(line);
-
             }
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("(DONE)");

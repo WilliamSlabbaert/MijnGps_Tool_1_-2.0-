@@ -43,7 +43,6 @@ namespace MijnGps
             Task ThreadWRGemeentenaamlines = Task.Factory.StartNew(() => FileUtil.WRGemeentenaamThread(FileUtil.readFileLines(WRGemeentenaam)));
             //Load WRGemeenteIDS
             Task ThreadWRGemeenteIDlines = Task.Factory.StartNew(() => FileUtil.WRgemeenteIdsThread(FileUtil.readFileLines(WRGemeenteID)));
-
             Task.WaitAll(ThreadWRGemeenteIDlines, ThreadWRGemeentenaamlines, ThreadWRstraatnamenlines);
 
             //Load ProvincieInfolines
@@ -270,14 +269,9 @@ namespace MijnGps
                         List<double> lengte = new List<double> { };
                         foreach (Straat str in gem.straten)
                         {
+                            outputFile.Write(str.ID + ",");
                             if (str.graaf != null)
                             {
-                                int ids = 0;
-                                if (str.ID != null)
-                                {
-                                    ids = str.ID;
-                                }
-                                outputFile.Write(ids + ",");
                                 lengte.Add(str.graaf.getLength());
                             }
                         }
