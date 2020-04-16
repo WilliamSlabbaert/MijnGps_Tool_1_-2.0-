@@ -263,8 +263,9 @@ namespace MijnGps
                 outputFile.WriteLine("GemeenteID" + ";" + "GemeenteName" + ";" + "StreetID;MAX;MIN");
                 foreach (Provincie pro in Provincies.Values)
                 {
-                    foreach (Gemeente gem in FileUtil.GemeenteCache.Values)
+                    foreach (Gemeente gem in pro.gemeentes)
                     {
+
                         outputFile.Write(gem.ID + ";" + gem.Name.ToString() + ";");
                         List<double> lengte = new List<double> { };
                         foreach (Straat str in gem.straten)
@@ -292,7 +293,7 @@ namespace MijnGps
                             outputFile.Write(";" + -0);
                             outputFile.Write(";" + -0);
                         }
-                        
+
                         outputFile.WriteLine();
                     }
                 }
