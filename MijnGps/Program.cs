@@ -235,7 +235,7 @@ namespace MijnGps
                                 }
                                 foreach (Segment seg in li)
                                 {
-                                    outputFile.Write(seg + ",");
+                                    outputFile.Write(seg + "|");
                                 }
 
                                 outputFile.WriteLine();
